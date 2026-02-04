@@ -5,8 +5,8 @@ from typing import Any
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build, Resource
+from google_auth_oauthlib.flow import InstalledAppFlow  # type: ignore[import-untyped]
+from googleapiclient.discovery import build, Resource  # type: ignore[import-untyped]
 
 from gmail_cleaner.config import get_config_dir
 from gmail_cleaner.types import AccountConfig, Config, EmailData, TokenData
@@ -57,7 +57,7 @@ def authenticate_account() -> AccountConfig | None:
 
 def get_gmail_service(account: AccountConfig) -> Resource:
     """Get authenticated Gmail API service for an account."""
-    creds = Credentials(
+    creds = Credentials(  # type: ignore[no-untyped-call]
         token=account.token["access_token"],
         refresh_token=account.token["refresh_token"],
         token_uri=account.token["token_uri"],

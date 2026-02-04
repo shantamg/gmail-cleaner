@@ -399,7 +399,7 @@ def main_menu(config: Config) -> None:
     from gmail_cleaner.pending import pending_exists
 
     while True:
-        choices: list[Choice[str | None]] = [
+        choices: list[Choice] = [
             Choice(title="Run cleaner", value="run"),
         ]
 
